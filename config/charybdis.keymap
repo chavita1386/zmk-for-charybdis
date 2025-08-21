@@ -115,7 +115,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &kp TILDE     &kp MINUS     &kp UNDER      &kp PIPE          &kp BSLH      &kp CARET
 &trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT      &kp DOWN      &kp UP         &kp RIGHT         &kp COLON     &kp DOUBLE_QUOTES
 &trans  &trans  &trans  &trans  &trans  &trans    &kp FSLH      &kp EQUAL     &kp LESS_THAN  &kp GREATER_THAN  &kp QUESTION  &kp LS(QMARK)
-                        &trans  &trans  &trans    &kp C_VOL_DN  &kp C_VOL_UP
+                        &trans  &trans  &trans    &kp C_VOL_DN  &trans
                                 &trans  &trans    &kp C_NEXT
             >;
         };
@@ -129,8 +129,8 @@
                                    &none         &none         &none         &none         &none
                                                  &none         &none         &none
             >;
-       
-            
+
+
         };
 
        Mouse {
@@ -143,7 +143,7 @@
                                                        &none      &trans        &trans
             >;
 
-            
+
         };
 
         layer_4 {
@@ -155,9 +155,9 @@
                            &trans     &mkp LCLK  &mkp RCLK    &mkp RCLK  &mkp LCLK
                                       &trans     &trans       &trans
             >;
-                
-                
-               
+
+
+
         };
 
         layer_5 {
@@ -169,8 +169,8 @@
                            &trans     &mkp LCLK  &mkp RCLK    &mkp RCLK  &mkp LCLK
                                       &trans     &trans       &trans
             >;
-                
-                
+
+
         };*/
     };
 };
