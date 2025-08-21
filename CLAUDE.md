@@ -79,6 +79,13 @@ The trackball behavior can be customized per layer using these properties in `ch
 
 **Current Configuration**: `scroll-layers = <4>;` enables vertical/horizontal scrolling only on the vim layer. On all other layers, the trackball functions as normal mouse movement.
 
+#### Global Speed Configuration
+Trackball cursor and scroll speeds are configured globally using defines at the top of the keymap:
+- **ZMK_POINTING_DEFAULT_MOVE_VAL 1000**: Cursor movement speed (default: 600, higher = faster)
+- **ZMK_POINTING_DEFAULT_SCRL_VAL 15**: Scroll speed (default: 10, higher = faster scroll)
+
+These defines must be placed before the `#include <dt-bindings/zmk/pointing.h>` line to take effect.
+
 ## Common Modifications
 
 ### Keymap Changes
