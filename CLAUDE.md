@@ -24,23 +24,54 @@ This is a ZMK firmware configuration for the Charybdis 4x6 split ergonomic keybo
 
 ## Building and Development
 
-### Automated Building
-This repository is configured for GitHub Actions automated builds:
+### Local Building with Docker (Recommended)
+This repository includes a complete local build system using Docker and Make:
+
+**Prerequisites:**
+- Docker or Podman installed
+- Make utility (install via `sudo apt-get install make` on Ubuntu, or `brew install make` on macOS)
+
+**Build Commands:**
+```bash
+# Build both halves + settings reset
+make
+
+# Build specific halves
+make left          # Build left half only
+make right         # Build right half only
+make settings_reset # Build settings reset firmware
+
+# Build Docker image (first time setup)
+make build-image
+
+# Clean up
+make clean         # Remove firmware files and Docker image
+make clean_firmware # Remove only firmware files
+make help          # Show available commands
+```
+
+**Output:** Firmware files are saved to the `firmware/` directory as `.uf2` files ready for flashing.
+
+### Automated Building (GitHub Actions)
+This repository also supports GitHub Actions automated builds:
 - Push changes to trigger automatic firmware compilation
 - Artifacts are generated for `nice_nano_v2` + `charybdis_left/right` combinations
-- `settings_reset` firmware is also built for factory resets
-
-### Manual Local Development
-For local ZMK development, you would typically:
-1. Set up ZMK development environment with West
-2. Use `west build` commands targeting the specific shield configurations
-3. Flash firmware to controllers via bootloader mode
+- Useful as backup build system and for CI/CD
 
 ### Testing Changes
-- Use a `settings_reset` firmware first when making significant changes
+- Use a `settings_reset` firmware first when making significant changes (`make settings_reset`)
 - Test both left and right halves independently
 - Verify Bluetooth pairing and split communication
 - Test trackball functionality on right half
+
+### Local Build System Architecture
+The local build system consists of:
+- **Makefile**: Build orchestration with targets for left/right/reset firmware
+- **Dockerfile**: ZMK build environment based on official ZMK ARM build image
+- **build.sh**: Build script that handles `west build` commands and firmware output
+- **firmware/**: Output directory for `.uf2` firmware files (gitignored)
+
+The system uses Docker containers to provide a consistent build environment across platforms, eliminating the need to install ZMK build dependencies locally.
 
 ## Architecture and Key Components
 

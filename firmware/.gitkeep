@@ -1,0 +1,2 @@
+# This file ensures the firmware directory is tracked by git
+# Firmware files (.uf2) are excluded by .gitignore
